@@ -54,3 +54,6 @@ if [ ! -z ${DB_BACKUP_PATH} ]; then
 fi
 
 ### End of script ####
+
+#Delete backups older than 7 days
+#find ${backup_parent_dir} -name '*' -type d -mtime +6 -exec rm -rfv "{}" \;
