@@ -2,6 +2,7 @@
 ----------------------mysql master-master mode active-active ----------------------
 
 ---------------my.cnf(server1)-----------------------------------
+```bash
 [mysqld]
 server-id=1
 log-bin="mysql-bin"
@@ -34,7 +35,9 @@ symbolic-links=0
 
 log-error=/var/log/mysqld.log
 pid-file=/var/run/mysqld/mysqld.pid
+```
 ---------------my.cnf(server2)----------------------------------- 
+```bash
 [mysqld]
 server-id=2
 log-bin="mysql-bin"
@@ -68,4 +71,4 @@ symbolic-links=0
 
 log-error=/var/log/mysqld.log
 pid-file=/var/run/mysqld/mysqld.pid
-
+```
