@@ -1,4 +1,4 @@
-# -------------------script de sauvegarde avec percona-------
+## -------------------script de sauvegarde avec percona-------
 
 #source 
 https://www.getmysql.info/2019/05/mysql-incremental-backup-script.html
@@ -13,7 +13,7 @@ Now you can install Percona XtraBackup by running:
 ```bash
 $ yum localinstall percona-xtrabackup-24-2.4.4-1.el7.x86_64.rpm
 ```
-# 2)les CMD de xtraBackup:
+## 2)les CMD de xtraBackup:
 ## backup:full==> 
 ```bash
 $ mkdir /bkp
@@ -53,6 +53,7 @@ set ssl-verify=ignore
 set nss-config-dir=/etc/pki/nssdb/
 ```
 ==> allow using tierd application in your compte gmail
+activer l'option :Accès moins sécurisé des applications in your account gmail
 
 https://myaccount.google.com/lesssecureapps
 
