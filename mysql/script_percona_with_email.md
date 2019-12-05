@@ -309,7 +309,26 @@ esac
     
 
 ##########################################################
-### Copyright@ Alok Kumar Singh with www.getmysql.info ###
+### Copyright@  ###
 ##########################################################
 ```
+## How to configure the cron job for automation of this script ?
 
+```bash
+$ crontab -e
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name  command to be executed
+
+##This CRON will take Daily FULL backup at 12:01 AM and then incremental on every 2 Hour . Before taking the full backup it will remove all the previous backups. You can change the remove policy according to your disk space.
+## Herein I'm not automate restore command . I will perform this task manually once needed. You can do as per your policy.
+
+01 00 * * *  cd /root && ./xtrabackup.sh full    
+01 */2 * * * cd /root && ./xtrabackup.sh incremental
+```
