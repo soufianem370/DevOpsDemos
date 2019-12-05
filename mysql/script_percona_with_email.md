@@ -1,9 +1,9 @@
--------------------script de sauvegarde avec percona-------
+# -------------------script de sauvegarde avec percona-------
 
 #source 
 https://www.getmysql.info/2019/05/mysql-incremental-backup-script.html
 
-# 1)install percona extrabakup ref: https://www.percona.com/doc/percona-xtrabackup/2.4/installation/yum_repo.html
+## 1)install percona extrabakup ref: https://www.percona.com/doc/percona-xtrabackup/2.4/installation/yum_repo.html
 ```bash
 $ wget https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.4/\
 ```
