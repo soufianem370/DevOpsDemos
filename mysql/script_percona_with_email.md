@@ -1,6 +1,6 @@
 ## -------------------script de sauvegarde avec percona-------
 
-#source 
+##source 
 https://www.getmysql.info/2019/05/mysql-incremental-backup-script.html
 
 ## 1)install percona extrabakup ref: https://www.percona.com/doc/percona-xtrabackup/2.4/installation/yum_repo.html
@@ -31,7 +31,7 @@ $ rsync -avrP /bkp/ /var/lib/mysql/
 $ chown -R mysql: /var/lib/mysql
 $ systemctl start mysqld
 ```
-# -----------------Installing mailx-----------------------------------------
+## -----------------Installing mailx-----------------------------------------
 ```bash
 yum -y update
 yum install -y mailx
@@ -61,7 +61,7 @@ test your server by sending an email:
 ```bash
 echo "Your message" | mail -v -s "Message Subject" souf.makhloufi@gmail.com
 ```
-# -----------script xtrabackup.sh-------------
+## -----------script xtrabackup.sh-------------
 ```bash
 #!/bin/bash
 #########################################
