@@ -80,5 +80,9 @@ mysqlbinlog mysql-binlog.000004 > /tmp/bin00004.txt
 #vi /backup/fullbackup.sql
 --change master to master_log_file='mysqlbinlog.000003', master_log_pos=120
 restaurer les binlog jusqu'au binlog qui pose le pb ou qui contient la commande drop
+3)restaurer les binlogs
+#mysqlbinlog mysql-binlog.000003 mysql-binlog.000004 mysql-binlog.000005|mysql -uroot -p
+
+
 
 
