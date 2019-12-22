@@ -54,7 +54,7 @@ Sauvegarde fichiers InnoDB
     example:
     --master-data=2 permet de mettre sur la sauvegarde avec le nom du fichier binlog utilisé et la position
     si vous voulez faire la restauration il faut utilisé ce fichier binlog et la position mentiener
- mysqldump -uroot -p --single-transaction --flush-logs --master-data=2 --all-databases > /backup/fullbackup.sql
+ #mysqldump -uroot -p --single-transaction --flush-logs --master-data=2 --all-databases > /backup/fullbackup.sql
 ====la resauration=========================================
 Dépend du type de sauvegarde
  Restauration à partir d’une sauvegarde à froid
@@ -62,5 +62,23 @@ Dépend du type de sauvegarde
  Type de restauration
 • Restauration FULL, base, table
 • Restauration PITR - Nécessite l’utilisation des journaux binaire - Utilisation de l’outil mysqlbinlog
+==> pour initier le fichier binlog:
+  mysql>flush logs;
+==> pour lire un fichier binlog 
+mysql-binlog.000001
+mysql-binlog.000002
+mysql-binlog.000003 ==> sauvegarde full
+mysql-binlog.000004
+mysql-binlog.000005
+mysql-binlog.000006 ==> drop
+
+
+mysqlbinlog mysql-binlog.000004 > /tmp/bin00004.txt
+1) restaurer le full
+#mysql -uroot -p < /backup/fullbackup.sql
+2)pour savoir sur quelle fichier binlog ne devons commencer normalement en va lire le fichier de backup et nous allons trouver le fichier binlog avec le quelle nous allons commencer à rejouer apres la restauration full
+#vi /backup/fullbackup.sql
+--change master to master_log_file='mysqlbinlog.000003', master_log_pos=120
+restaurer les binlog jusqu'au binlog qui pose le pb ou qui contient la commande drop
 
 
